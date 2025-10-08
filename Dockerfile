@@ -26,12 +26,12 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html/
 
 # Copy project files
-COPY ./bedrock .
+COPY ./bedrock ./bedrock
 
 WORKDIR /var/www/html/bedrock
 
 # Install Bedrock dependencies
-RUN composer install --no-dev --prefer-dist --optimize-autoloader
+RUN composer install
 
 # Set permissions
 RUN chown -R www-data:www-data /var/www/html
