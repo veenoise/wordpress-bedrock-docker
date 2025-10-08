@@ -7,7 +7,7 @@ services:
       - "8080:80"
     volumes:
       - ./bedrock:/var/www/html/bedrock
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php
     networks:
@@ -28,10 +28,10 @@ services:
     image: mysql:8.4
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wpuser
-      MYSQL_PASSWORD: wppass
+      MYSQL_ROOT_PASSWORD: changeme # Change db root password
+      MYSQL_DATABASE: changeme # Change db name
+      MYSQL_USER: changeme # Change db user
+      MYSQL_PASSWORD: changeme # Change db user password
     volumes:
       - db_data:/var/lib/mysql
     networks:
