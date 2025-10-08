@@ -23,6 +23,11 @@ services:
     networks:
       - app-network
     restart: always
+    working_dir: /var/www/html/bedrock
+    command: sh -c "
+        composer install
+        php-fpm
+      "
 
   db:
     image: mysql:8.4

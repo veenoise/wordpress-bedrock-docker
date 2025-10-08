@@ -22,19 +22,5 @@ RUN pecl install imagick \
 # Install Composer
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# Set working directory
-WORKDIR /var/www/html/
-
-# Copy project files
-COPY ./bedrock ./bedrock
-
-WORKDIR /var/www/html/bedrock
-
-# Install Bedrock dependencies
-RUN composer install
-
-# Set permissions
-RUN chown -R www-data:www-data /var/www/html
-
 EXPOSE 9000
 CMD ["php-fpm"]
