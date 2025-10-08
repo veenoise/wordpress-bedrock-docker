@@ -26,7 +26,7 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 WORKDIR /var/www/html/
 
 # Copy project files
-COPY . .
+COPY ./bedrock .
 
 WORKDIR /var/www/html/bedrock
 
